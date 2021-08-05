@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://hiristic.github.io/imvelo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
