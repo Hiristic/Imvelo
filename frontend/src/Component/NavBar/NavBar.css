@@ -1,0 +1,56 @@
+.navbar {
+    /* overflow: hidden; */
+    background-color: #062b42;
+    height: 72px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-logo {
+    justify-self: center;
+    cursor: pointer;
+    justify-content: center;
+    float: left;
+}
+
+.navbar-menu {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(15, auto);
+    list-style: none;
+    text-align: center;
+    justify-content: end;
+}
+
+.navbar-btn-help {
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-right: 5px;
+    background-color: #2aac64;
+    cursor: pointer;
+}
+
+.navbar-product {
+    margin-top: 15px;
+    text-align: center;
+    padding-right: 1750px;
+}
+
+.navbar-login {
+    margin-top: 15px;
+    float: right;
+    margin-right: 45px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+li:active {
+    text-decoration: underline;
+
+}
