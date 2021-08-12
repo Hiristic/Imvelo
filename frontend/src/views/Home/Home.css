@@ -1,6 +1,6 @@
 .box_welcome_text {
     position: absolute;
-    top: 10%;
+    margin-top: 45px;
     left: 9%;
     width: 80%;
     height: 148px;
@@ -16,7 +16,7 @@
 
 .info_home_page {
     position: absolute;
-    top: 25%;
+    top: 32%;
     left: 9%;
     bottom: 5%;
     width: 80%;
@@ -24,25 +24,3 @@
     background-color: white;
     color: #272727;
 }
-
-
-/* .home {
-    background-color: rgba(229, 229, 229, );
-}
-
-h1 {
-    background-color: red;
-    text-align: center;
-    font-size: 48px;
-    font-family: "Helvetica Neue, Arial, sans-serif";
-    height: 148px;
-    margin: 30px;
-
-}
-
-.info_home_page {
-    background-color: green;
-    height: 799px;
-
-    text-align: center;
-} */
