@@ -1,8 +1,0 @@
-.vscode/
-frontend/node_modules/
-node_modules
-
-frontend/build
-.eslintcache
-# Local Netlify folder
-.netlify
