@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './Product.css'
-import ReactDOM from 'react-dom';
 import MaterialTable from "material-table";
 
 function Product() {
 
-    const [tableData, setTableData] = useState([])
+    const [tableData] = useState([])
     const colums = [
         { title: "Produktnamn", field: "produktnamn" },
         { title: "Leverantör", field: "leverantor" },
@@ -20,5 +19,4 @@ function Product() {
         </div>
     );
 };
-
 export default Product;
