@@ -17,7 +17,6 @@ function Product() {
     return (
         <div className="container">
             <p> Produktlista</p>
-            <h1> Produktlista </h1>
 
             <MaterialTable colums={colums} data={tableData} />
         </div>
