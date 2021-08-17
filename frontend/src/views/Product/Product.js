@@ -4,16 +4,20 @@ import MaterialTable from "material-table";
 
 function Product() {
 
-    const [tableData] = useState([])
+    const [tableData, setTableDate] = useState([
+        { produktnamn: "Loctite 221", leverantor: "Henkel Ltd", piktogram: "", utfardandeDatum: "16-03-2020" }
+    ])
+
     const colums = [
-        { title: "Produktnamn", field: "produktnamn" },
-        { title: "Leverantör", field: "leverantor" },
-        { title: "Piktogram", field: "piktogram" },
-        { title: "Utfärdande datum", field: "utfardandeDatum" }
+        { title: "Produktnamn", accessor: "produktnamn" },
+        { title: "Leverantör", accessor: "leverantor" },
+        { title: "Piktogram", fiaccessoreld: "piktogram" },
+        { title: "Utfärdande datum", accessor: "utfardandeDatum" }
     ]
     return (
         <div className="container">
             <p> Produktlista</p>
+            <h1> Produktlista </h1>
 
             <MaterialTable colums={colums} data={tableData} />
         </div>

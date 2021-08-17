@@ -10,13 +10,13 @@ const NavBar = () => {
             <ul className="navbar-menu">
                 <li className="navbar-logo"> <Link to="/"><img src={Logo} alt="" /></Link></li>
                 <li className="navbar-product"><Link to="/Product">Produkter</Link></li>
-                <div>
-                    <button className="navbar-btn-help"> ? </button>
+                <div className="navbar-btn-help">
+                    <button className="navbar-btn"> ? </button>
                 </div>
                 <li className="navbar-login"><Link to="/Login">Log in </Link></li>
             </ul>
 
-        </nav>
+        </nav >
     );
 };
 

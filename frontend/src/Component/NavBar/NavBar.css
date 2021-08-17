@@ -1,47 +1,20 @@
 .navbar {
-    /* overflow: hidden; */
     background-color: #062b42;
     height: 72px;
-    width: 100%;
     align-items: center;
     display: flex;
-    justify-content: center;
-}
-
-.navbar-logo {
-    justify-self: center;
-    cursor: pointer;
-    justify-content: center;
-    float: left;
 }
 
 .navbar-menu {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(15, auto);
+    width: 90%;
     list-style: none;
-    text-align: center;
-    justify-content: end;
+
 }
 
-.navbar-btn-help {
-    border-radius: 50%;
-    margin-top: 15px;
-    margin-right: 5px;
-    background-color: #2aac64;
+.navbar-logo {
     cursor: pointer;
-}
-
-.navbar-product {
-    margin-top: 15px;
-    text-align: center;
-    padding-right: 1250px;
-}
-
-.navbar-login {
-    margin-top: 15px;
-    float: right;
-    margin-right: 45px;
+    float: left;
+    margin-left: 105px;
 }
 
 a {
@@ -50,7 +23,31 @@ a {
     font-size: 17px;
 }
 
-li:active {
-    text-decoration: underline;
+li {
+    float: Left;
+    text-align: center;
+    grid-template-columns: repeat(15, auto);
 
+}
+
+.navbar-product {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.navbar-login {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+.navbar-btn-help {
+    float: right;
+    margin-top: 15px;
+    margin-right: 55px;
+}
+
+.navbar-btn {
+    background-color: #2aac64;
+    border-radius: 50%;
 }
