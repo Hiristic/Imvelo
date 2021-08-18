@@ -7,7 +7,8 @@ export const Container = styled.div`
   width: 100%;
   padding: 16px 25px;
   display: grid;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: auto 1fr 6%;
+  align-items: center;
 `;
 
 export const NavLogo = styled(Link)`

@@ -6,6 +6,7 @@ import { NavBar } from "../components/NavBar";
 
 const Landing = lazy(() => import("../features/landing/Landing"));
 const Products = lazy(() => import("../features/products/Products"));
+const Login = lazy(() => import("../features/authentication/Login"));
 
 const Navigation = () => {
   return (
@@ -16,6 +17,7 @@ const Navigation = () => {
           <Switch>
             <Route path="/" exact component={Landing} />
             <Route path="/products" exact component={Products} />
+            <Route path="/login" exact component={Login} />
             <Route path="*" exact component={() => <h1>404 not found</h1>} />
           </Switch>
         </Suspense>

@@ -14,7 +14,6 @@ const StyledLink = styled(NavLink)`
   color: #fff;
   margin-right: 20px;
   height: 100%;
-  padding-top: 15px;
   padding-right: 12px;
   padding-left: 12px;
   position: relative;
@@ -32,7 +31,7 @@ const Underline = styled.div`
   height: 4px;
   background-color: ${({ theme }) => theme.colors.secondary};
   position: absolute;
-  bottom: -11px;
+  bottom: -25px;
   right: 0;
   left: 0;
   border-radius: 10px;
