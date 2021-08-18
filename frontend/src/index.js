@@ -1,14 +1,24 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import Navigation from "./navigation";
 
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes } from './routes'; // where we are going to specify our routes
+function App() {
+  // const [{ user }] = useCookies();
+  // const dispatch = useDispatch();
+  //
+  // useEffect(() => {
+  //     if (user) {
+  //         dispatch(setUser(user));
+  //     }
+  // }, [user, dispatch]);
+
+  return <Navigation />;
+}
 
 ReactDOM.render(
-  <Router>
-    <Routes />
-  </Router>,
-  document.getElementById('root')
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-
