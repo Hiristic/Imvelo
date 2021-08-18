@@ -11,8 +11,8 @@ const Navigation = () => {
   return (
     <Router>
       <CustomThemeProvider>
+        <NavBar />
         <Suspense fallback={<CenterSpinner />}>
-          <NavBar />
           <Switch>
             <Route path="/" exact component={Landing} />
             <Route path="/products" exact component={Products} />
