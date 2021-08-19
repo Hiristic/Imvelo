@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
 
 const Button = styled.button.attrs((props) => ({
   disabled: props.disabled,
@@ -59,10 +58,5 @@ const Button = styled.button.attrs((props) => ({
     color: ${theme.colors.secondary};
   `}
 `;
-
-Button.propTypes = {
-  backgroundColor: PropTypes.string,
-  secondary: PropTypes.bool,
-};
 
 export default Button;

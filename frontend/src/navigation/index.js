@@ -4,7 +4,6 @@ import { CustomThemeProvider } from "../theme/ThemeProvider";
 import CenterSpinner from "../components/common/Spinner/CenterSpinner";
 import { NavBar } from "../components/NavBar";
 
-const Landing = lazy(() => import("../features/landing/Landing"));
 const Products = lazy(() => import("../features/products/Products"));
 const Login = lazy(() => import("../features/authentication/Login"));
 
@@ -15,9 +14,8 @@ const Navigation = () => {
         <NavBar />
         <Suspense fallback={<CenterSpinner />}>
           <Switch>
-            <Route path="/" exact component={Landing} />
+            <Route path="/" exact component={Login} />
             <Route path="/products" exact component={Products} />
-            <Route path="/login" exact component={Login} />
             <Route path="*" exact component={() => <h1>404 not found</h1>} />
           </Switch>
         </Suspense>
