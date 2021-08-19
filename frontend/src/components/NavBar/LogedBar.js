@@ -2,8 +2,6 @@ import { Logo } from "../common/Logo";
 import { LogedContainer, NavLogo } from "./navbar.styled";
 import NavItem from "./NavItem";
 import HelpButton from "../HelpButton/HelpButton";
-import { Link } from "react-router-dom";
-import { Text } from "../common/Typography";
 import styled from "styled-components";
 import AccountSelect from "../AccountSelect/AccountSelect";
 

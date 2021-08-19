@@ -24,7 +24,7 @@ const accountItems = [
 const AccountSelect = () => {
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [{ user }, setCookie, removeCookie] = useCookies();
+  const [setCookie, removeCookie] = useCookies();
   const history = useHistory();
 
   const onLogout = () => {
