@@ -10,4 +10,5 @@ export const Text = styled.p`
   margin-top: ${(props) => props.marginTop || "0px"};
   margin-bottom: ${(props) => props.marginBottom || "0px"};
   margin-left: ${(props) => props.marginLeft || "0px"};
+  margin-right: ${(props) => props.marginRight || "0px"};
 `;

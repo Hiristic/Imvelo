@@ -7,7 +7,7 @@ export const LogedContainer = styled.div`
   width: 100%;
   padding: 16px 25px;
   display: grid;
-  grid-template-columns: auto 1fr 6%;
+  grid-template-columns: auto 1fr 8%;
   align-items: center;
 `;
 

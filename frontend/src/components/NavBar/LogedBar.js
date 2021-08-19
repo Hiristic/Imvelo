@@ -5,6 +5,7 @@ import HelpButton from "../HelpButton/HelpButton";
 import { Link } from "react-router-dom";
 import { Text } from "../common/Typography";
 import styled from "styled-components";
+import AccountSelect from "../AccountSelect/AccountSelect";
 
 const Menu = styled.div`
   display: flex;
@@ -36,9 +37,7 @@ const LogedBar = ({ navItems }) => {
       </Menu>
       <LoginWrapper>
         <HelpButton />
-        <Link to={"/login"}>
-          <Text color={"#fff"}>Log in</Text>
-        </Link>
+        <AccountSelect />
       </LoginWrapper>
     </LogedContainer>
   );

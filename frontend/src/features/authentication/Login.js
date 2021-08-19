@@ -1,6 +1,8 @@
 import styled, { useTheme } from "styled-components";
 import { Heading, Text } from "../../components/common/Typography";
 import LoginForm from "../../forms/LoginForm";
+import { useHistory, useLocation } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Container = styled.div`
   display: flex;
@@ -13,12 +15,28 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   text-align: center;
-  width: 23%;
+  width: 19%;
   margin-bottom: 100px;
 `;
 
 const Login = () => {
   const theme = useTheme();
+  const [cookies, setCookie] = useCookies();
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
+
+  const onLogin = async (data) => {
+    const access = "testingg";
+    const refresh = "restingg";
+    const user = "usertest";
+
+    setCookie("jwt", access, { path: "/" });
+    setCookie("refresh", refresh, { path: "/" });
+    setCookie("user", user, { path: "/" });
+    history.replace(from);
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -34,7 +52,7 @@ const Login = () => {
         >
           Logga in med användarnamn och lösenord.
         </Text>
-        <LoginForm onSubmit={(data) => console.log(data)} />
+        <LoginForm onSubmit={onLogin} />
       </Wrapper>
     </Container>
   );

@@ -54,7 +54,7 @@ const LoginForm = ({ onSubmit, serverError, loading }) => {
         <Link href={"/reset"}>Glömt lösenord?</Link>
       </ButtonWrapper>
       <Button type="submit" padding="12" disabled={loading}>
-        {loading ? <Spinner size={"25px"} /> : "Login"}
+        {loading ? <Spinner size={"25px"} /> : "Logga in"}
       </Button>
     </form>
   );
