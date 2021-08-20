@@ -30,7 +30,7 @@ const LoginForm = ({ onSubmit, serverError, loading }) => {
         label="Användarnamn"
         placeholder="Skriv in ditt användarnamn"
         type="email"
-        error={errors?.email && "Input is required"}
+        error={errors?.email && "Felaktigt användarnamn, försök igen."}
         {...register("email", { required: true })}
       />
       <Input
@@ -38,7 +38,7 @@ const LoginForm = ({ onSubmit, serverError, loading }) => {
         type={"password"}
         label="Lösenord"
         placeholder="Skriv in lösenord"
-        error={errors?.password && "Input is required"}
+        error={errors?.password && "Felaktigt lösenord, försök igen."}
         {...register("password", { required: true })}
       />
       <ErrorLabel>{serverError}</ErrorLabel>

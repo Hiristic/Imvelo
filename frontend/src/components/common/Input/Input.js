@@ -10,10 +10,13 @@ const Input = React.forwardRef((props, ref) => {
   return (
     <div style={{ width: "100%", position: "relative", marginTop: "30px" }}>
       {label && (
-        <Label color={isFocused ? "#117ACE" : "inherit"}>{label}</Label>
+        <Label color={error ? "#F05453" : isFocused ? "#117ACE" : "inherit"}>
+          {label}
+        </Label>
       )}
       <CustomInput
         {...props}
+        isError={error}
         isFocused={isFocused}
         onBlur={() => setIsFocused(false)}
         onFocus={() => setIsFocused(true)}

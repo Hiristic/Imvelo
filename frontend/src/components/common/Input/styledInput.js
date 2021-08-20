@@ -35,4 +35,10 @@ export const CustomInput = styled.input`
     `
    border: 1px solid #117ACE;
   `}
+
+  ${({ isError }) =>
+    isError &&
+    `
+  border: 1px solid #F05453;
+  `}
 `;
