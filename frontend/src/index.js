@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Navigation from "./navigation";
+import { CookiesProvider } from "react-cookie";
 
 function App() {
   // const [{ user }] = useCookies();
@@ -18,7 +19,9 @@ function App() {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
