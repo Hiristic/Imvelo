@@ -3,7 +3,7 @@ import Card from "../../components/Card/Card";
 import { Text } from "../../components/common/Typography";
 import ProductInfo from "../../components/Productinfo/ProductInfo";
 import { DoughnutChart } from "../../components/Charts";
-import { Bar } from "react-chartjs-2";
+import { BarChart } from "../../components/Charts";
 
 const data = {
   labels: ["Level1", "Level2", "Level3", "Level4", "Level5"],
@@ -32,38 +32,6 @@ const data1 = {
       backgroundColor: "#2AAC64",
     },
   ],
-};
-
-const options = {
-  datasets: { bar: { borderRadius: 4 }, pointStyle: "circle" },
-  scales: {
-    x: {
-      ticks: {
-        font: {
-          size: 11,
-        },
-      },
-    },
-    y: {
-      ticks: {
-        beginAtZero: true,
-      },
-    },
-  },
-  plugins: {
-    legend: {
-      padding: 10,
-      display: true,
-      position: "bottom",
-      align: "center",
-      labels: {
-        usePointStyle: true,
-        boxWidth: 8,
-        padding: 30,
-        color: "#000",
-      },
-    },
-  },
 };
 
 const Container = styled.div`
@@ -102,11 +70,11 @@ const Details = styled(Card)`
   grid-area: details;
 `;
 
-const BarChart = styled(Card)`
+const BarChartWrapper = styled(Card)`
   grid-area: bar;
 `;
 
-const PieChart = styled(Card)`
+const DonutChartWrapper = styled(Card)`
   grid-area: pie;
   padding: 36px 30px;
 `;
@@ -136,18 +104,18 @@ const Dashboard = () => {
           </ProductWrapper>
         </Main>
         <Details />
-        <BarChart>
+        <BarChartWrapper>
           <Text
             fontSize={"1em"}
-            marginBottom={"30px"}
+            marginBottom={"50px"}
             textAlign={"center"}
             fontWeight={400}
           >
             Totala antalet unika produkter på respektive restriktionslista
           </Text>
-          <Bar data={data1} options={options} />
-        </BarChart>
-        <PieChart>
+          <BarChart data={data1} />
+        </BarChartWrapper>
+        <DonutChartWrapper>
           <Text
             fontSize={"0.9em"}
             marginBottom={"30px"}
@@ -157,7 +125,7 @@ const Dashboard = () => {
             Totala antalet unika produkter i respektive risknivå
           </Text>
           <DoughnutChart data={data} riskNumber={120} />
-        </PieChart>
+        </DonutChartWrapper>
       </Wrapper>
     </Container>
   );
