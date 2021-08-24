@@ -6,7 +6,7 @@ import { Text } from "../common/Typography";
 
 const MenuText = styled(Text)`
   font-size: 0.9em;
-  font-weight: 600;
+  font-weight: 500;
   color: inherit;
 `;
 

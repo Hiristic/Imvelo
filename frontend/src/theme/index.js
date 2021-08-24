@@ -8,5 +8,7 @@ export const theme = {
     contentPrimary: "#272727",
     contentSecondary: "#A3A3B0",
     contentGreen: "#2AAC64",
+    error: "#F05453",
+    focused: "#117ACE",
   },
 };

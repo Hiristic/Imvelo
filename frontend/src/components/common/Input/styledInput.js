@@ -30,15 +30,15 @@ export const CustomInput = styled.input`
     text-align: ${({ alignPlaceholder }) => alignPlaceholder || "left"};
   }
   background-color: ${({ backgroundColor }) => backgroundColor || "#FBFBFB"};
-  ${({ isFocused }) =>
+  ${({ isFocused, theme }) =>
     isFocused &&
     `
-   border: 1px solid #117ACE;
+   border: 1px solid ${theme.colors.focused};
   `}
 
-  ${({ isError }) =>
+  ${({ isError, theme }) =>
     isError &&
     `
-  border: 1px solid #F05453;
+  border: 1px solid ${theme.colors.error};
   `}
 `;

@@ -1,9 +1,4 @@
 
-@font-face {
-  font-family: 'Inter';
-  src: local('Inter'), url(./assets/fonts/Inter.ttf) format('truetype');
-}
-
 html {
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;

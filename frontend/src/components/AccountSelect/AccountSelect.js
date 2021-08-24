@@ -24,13 +24,13 @@ const accountItems = [
 const AccountSelect = () => {
   const theme = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [setCookie, removeCookie] = useCookies();
+  const [cookies, setCookie, removeCookie] = useCookies();
   const history = useHistory();
 
   const onLogout = () => {
-    removeCookie("jwt");
-    removeCookie("user");
-    removeCookie("refresh");
+    removeCookie("jwt", { path: "/" });
+    removeCookie("user", { path: "/" });
+    removeCookie("refresh", { path: "/" });
   };
 
   const onItem = (path) => {
@@ -45,7 +45,12 @@ const AccountSelect = () => {
   return (
     <Container tabIndex="0" onBlur={collapse}>
       <ContentWrapper onClick={() => setIsOpen(!isOpen)}>
-        <Text marginRight={"8px"} color={"#fff"} textAlign={"right"}>
+        <Text
+          fontWeight={500}
+          marginRight={"8px"}
+          color={"#fff"}
+          textAlign={"right"}
+        >
           Min profil
         </Text>
         <MdKeyboardArrowDown size={"30px"} color={theme.colors.secondary} />
@@ -56,7 +61,7 @@ const AccountSelect = () => {
           <TabItem key={acc?.name} onClick={() => onItem(acc.path)}>
             {acc.icon}
             <Text
-              fontWeight={600}
+              fontWeight={500}
               fontSize={"0.9em"}
               marginLeft={"15px"}
               textAlign={"left"}
@@ -68,7 +73,7 @@ const AccountSelect = () => {
         <TabItem onClick={onLogout}>
           <AiOutlineLogout color={"#2AAC64"} size={"25px"} />
           <Text
-            fontWeight={600}
+            fontWeight={500}
             fontSize={"0.9em"}
             marginLeft={"15px"}
             textAlign={"left"}
@@ -84,11 +89,9 @@ const AccountSelect = () => {
 export default AccountSelect;
 
 const Container = styled.div`
-  position: absolute;
-  top: 25px;
-  right: 25px;
   border: none;
   outline: none;
+  position: relative;
 `;
 
 const ContentWrapper = styled.div`
@@ -124,6 +127,9 @@ const growDown = keyframes`
 `;
 
 const TabsWrapper = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 0;
   background-color: #fff;
   margin: 15px 0;
   padding: 10px 8px;
