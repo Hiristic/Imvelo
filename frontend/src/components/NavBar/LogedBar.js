@@ -4,6 +4,7 @@ import NavItem from "./NavItem";
 import HelpButton from "../HelpButton/HelpButton";
 import styled from "styled-components";
 import AccountSelect from "../AccountSelect/AccountSelect";
+import Searchbar from "../SearchBar/SearchBar";
 
 const Menu = styled.div`
   display: flex;
@@ -22,7 +23,6 @@ const LogedBar = ({ navItems }) => {
       <NavLogo to="/">
         <Logo />
       </NavLogo>
-
       <Menu>
         {navItems?.map((res) => (
           <NavItem
@@ -33,6 +33,7 @@ const LogedBar = ({ navItems }) => {
           />
         ))}
       </Menu>
+      <Searchbar />
       <LoginWrapper>
         <HelpButton />
         <AccountSelect />

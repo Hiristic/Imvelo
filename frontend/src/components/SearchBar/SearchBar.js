@@ -1,40 +1,54 @@
 import styled from "styled-components";
 import React from "react";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SearchIcon from "../../assets/images/search.svg";
 
 const Search = styled.div`
-    display:flex;
-    width: 250px;
-    height: 35px;
-    margin-left: auto;
-    background-color: white;
-    border-radius: 4px;
+  display: flex;
+  height: 100%;
+  width: 50%;
+  margin-left: auto;
+  background-color: #f5f6fa;
+  border-radius: 4px;
+  align-items: center;
+  padding: 10px;
 `;
 
 const MyInput = styled.input`
- background: url(faSearch);
-padding-left:10px;
-border: none;
-&:focus {
+  padding-left: 10px;
+  background: transparent;
+  border: none;
+  &:focus {
     outline: none;
-    
+  }
+
+  &::placeholder,
+  ::-webkit-input-placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #c0c0d0;
+    opacity: 1; /* Firefox */
+    text-align: ${({ alignPlaceholder }) => alignPlaceholder || "left"};
+  }
+
+  &:-ms-input-placeholder {
+    color: #c0c0d0;
+    text-align: ${({ alignPlaceholder }) => alignPlaceholder || "left"};
   }
 `;
 
 const SearchBar = () => {
-    return (
-        <Search>
-            <FontAwesomeIcon icon={faSearch}
-                style={{
-                    marginTop: '10px',
-                    marginLeft: '10px',
-                    color: '#2aac64',
-
-                }} />
-            <MyInput type="text" placeholder="Sök" />
-        </Search>
-    );
+  return (
+    <Search>
+      <img
+        src={SearchIcon}
+        style={{
+          width: "12px",
+          height: "12px",
+          color: "#2aac64",
+        }}
+      />
+      <MyInput type="text" placeholder="Sök" />
+    </Search>
+  );
 };
 
 export default SearchBar;

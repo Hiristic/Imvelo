@@ -5,9 +5,9 @@ export const LogedContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   height: 72px;
   width: 100%;
-  padding: 16px 25px;
+  padding: 12px 25px;
   display: grid;
-  grid-template-columns: auto 1fr 8%;
+  grid-template-columns: auto 1fr 1fr 8%;
   align-items: center;
 `;
 

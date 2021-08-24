@@ -29,6 +29,7 @@ export const CustomInput = styled.input`
     color: lightgray;
     text-align: ${({ alignPlaceholder }) => alignPlaceholder || "left"};
   }
+
   background-color: ${({ backgroundColor }) => backgroundColor || "#FBFBFB"};
   ${({ isFocused, theme }) =>
     isFocused &&

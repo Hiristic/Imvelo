@@ -9,7 +9,7 @@ const GuestBar = () => {
       <NavLogo to="/">
         <Logo />
       </NavLogo>
-      <Searchbar />
+
       <HelpButton />
     </GuestContainer>
   );
