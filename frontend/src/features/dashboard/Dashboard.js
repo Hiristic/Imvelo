@@ -19,12 +19,12 @@ const data = {
 const data1 = {
   labels: [
     ["PRIO", " Riskminksning"],
-    "PRIO Utfasning",
+    ["PRIO", " Utfasning"],
     "SIN-lista",
-    "REACH SVHC",
-    "REACH Kandidatlista",
-    "REACH Bilaga XIV",
-    "REACH Bilaga XVII",
+    ["REACH", "SVHC"],
+    ["REACH", "Kandidatlista"],
+    ["REACH", "Bilaga XIV"],
+    ["REACH", "Bilaga XVII"],
   ],
   datasets: [
     {

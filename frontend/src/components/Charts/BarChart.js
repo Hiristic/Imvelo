@@ -11,10 +11,10 @@ const options = {
         display: false,
       },
       ticks: {
-        color: "#C0C0D0",
+        color: "gray",
         font: {
           weight: 500,
-          size: 11,
+          size: 10,
         },
       },
     },
@@ -23,7 +23,7 @@ const options = {
         color: "#F2F2F6",
       },
       ticks: {
-        color: "#C0C0D0",
+        color: "gray",
         beginAtZero: true,
         font: {
           weight: 500,
