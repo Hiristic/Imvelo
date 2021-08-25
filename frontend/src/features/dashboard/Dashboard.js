@@ -4,6 +4,7 @@ import { Text } from "../../components/common/Typography";
 import ProductInfo from "../../components/Productinfo/ProductInfo";
 import { DoughnutChart } from "../../components/Charts";
 import { BarChart } from "../../components/Charts";
+import DetailsItem from "../../components/DetailsItem/DetailsItem";
 
 const data = {
   labels: ["Level1", "Level2", "Level3", "Level4", "Level5"],
@@ -18,12 +19,12 @@ const data = {
 const data1 = {
   labels: [
     ["PRIO", " Riskminksning"],
-    "PRIO Utfasning",
+    ["PRIO", " Utfasning"],
     "SIN-lista",
-    "REACH SVHC",
-    "REACH Kandidatlista",
-    "REACH Bilaga XIV",
-    "REACH Bilaga XVII",
+    ["REACH", "SVHC"],
+    ["REACH", "Kandidatlista"],
+    ["REACH", "Bilaga XIV"],
+    ["REACH", "Bilaga XVII"],
   ],
   datasets: [
     {
@@ -68,6 +69,10 @@ const ProductWrapper = styled.div`
 
 const Details = styled(Card)`
   grid-area: details;
+  display: grid;
+  grid-template-columns: 10% 25% repeat(3, 10%);
+  padding: 25px 33px;
+  grid-gap: 0 80px;
 `;
 
 const BarChartWrapper = styled(Card)`
@@ -103,7 +108,27 @@ const Dashboard = () => {
             />
           </ProductWrapper>
         </Main>
-        <Details />
+        <Details>
+          <DetailsItem
+            heading={"Granskning"}
+            text={"Ej granskade produkter"}
+            total={27}
+          />
+          <DetailsItem
+            text={"Granskningar som behöver uppdateras"}
+            total={18}
+          />
+          <DetailsItem
+            heading={"Riskbedömning"}
+            text={"Ej riskbedömda produkter"}
+            total={22}
+          />
+          <DetailsItem
+            text={"Riskbedömningar som utgår inom 2 månader"}
+            total={23}
+          />
+          <DetailsItem text={"Riskbedömningar som har utgått"} total={16} />
+        </Details>
         <BarChartWrapper>
           <Text
             fontSize={"1em"}

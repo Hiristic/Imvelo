@@ -15,9 +15,12 @@ const Search = styled.div`
 `;
 
 const MyInput = styled.input`
+  height: 100%;
+  width: 100%;
   padding-left: 10px;
   background: transparent;
   border: none;
+  font-size: 1em;
   &:focus {
     outline: none;
   }

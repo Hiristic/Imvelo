@@ -31,7 +31,7 @@ const Underline = styled.div`
   height: 4px;
   background-color: ${({ theme }) => theme.colors.secondary};
   position: absolute;
-  bottom: -25px;
+  bottom: -27px;
   right: 0;
   left: 0;
   border-radius: 10px;
