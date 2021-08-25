@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState, useRef } from 'react';
 import SearchIcon from "../../assets/images/search.svg";
+import useDebouncedEffect from 'use-debounced-effect-hook';
 
 const Search = styled.div`
   display: flex;
@@ -21,11 +22,12 @@ const MyInput = styled.input`
     outline: none;
   }
 
+
   &::placeholder,
   ::-webkit-input-placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
+ 
     color: #c0c0d0;
-    opacity: 1; /* Firefox */
+    opacity: 1; 
     text-align: ${({ alignPlaceholder }) => alignPlaceholder || "left"};
   }
 
@@ -36,8 +38,26 @@ const MyInput = styled.input`
 `;
 
 const SearchBar = () => {
+  const renderCountRef = useRef(0);
+  const [inputValue, setInputValue] = useState('');
+  const [debouncedValue, setDebouncedValue] = useState('');
+  const handleInputChange = ({ target: { value } }) => setInputValue(value);
+
+
+  useDebouncedEffect(() => {
+    setDebouncedValue(inputValue);
+  }, [
+    console.log(inputValue),
+  ], 3000);
+
+  renderCountRef.current += 1;
+
   return (
-    <Search>
+    <Search value={inputValue} onChange={handleInputChange}>
+      <p>
+        {debouncedValue || ''}
+      </p>
+
       <img
         src={SearchIcon}
         style={{
