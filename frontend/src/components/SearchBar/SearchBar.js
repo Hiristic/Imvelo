@@ -44,8 +44,8 @@ const SearchBar = () => {
       <img
         src={SearchIcon}
         style={{
-          width: "12px",
-          height: "12px",
+          width: "15px",
+          height: "15px",
           color: "#2aac64",
         }}
       />

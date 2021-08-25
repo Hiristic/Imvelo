@@ -7,8 +7,9 @@ export const LogedContainer = styled.div`
   width: 100%;
   padding: 12px 25px;
   display: grid;
-  grid-template-columns: auto 1fr 1fr 8%;
+  grid-template-columns: auto 1fr 1fr 9%;
   align-items: center;
+  grid-gap: 34px;
 `;
 
 export const GuestContainer = styled.div`
@@ -24,5 +25,4 @@ export const GuestContainer = styled.div`
 export const NavLogo = styled(Link)`
   cursor: pointer;
   text-decoration: none;
-  margin-right: 40px;
 `;
