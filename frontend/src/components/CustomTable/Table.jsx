@@ -1,7 +1,15 @@
 import React from "react";
-import { useFilters, useTable, useExpanded } from "react-table";
+import { useFilters, useTable, useExpanded, useRowSelect } from "react-table";
 
-const Table = ({ columns, data, onRowClick, renderRowSubComponent }) => {
+const Table = ({
+  columns,
+  data,
+  onRowClick,
+  renderRowSubComponent,
+  onChangeSelection,
+}) => {
+  const initiallySelectedRows = React.useMemo(() => new Set(["1"]), []);
+
   const defaultColumn = React.useMemo(
     () => ({
       minWidth: 30,
@@ -11,20 +19,33 @@ const Table = ({ columns, data, onRowClick, renderRowSubComponent }) => {
     []
   );
   const tableInstance = useTable(
-    { columns, data, defaultColumn },
+    {
+      columns,
+      data,
+      defaultColumn,
+      initialState: {
+        selectedRowPaths: initiallySelectedRows,
+      },
+      debug: true,
+    },
     useFilters,
-    useExpanded
+    useExpanded,
+    useRowSelect
   );
 
   const {
     getTableProps,
-
     getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
     visibleColumns,
+    selectedFlatRows,
   } = tableInstance;
+
+  React.useEffect(() => {
+    onChangeSelection(selectedFlatRows);
+  }, [selectedFlatRows, onChangeSelection]);
 
   return (
     <table {...getTableProps()}>
@@ -41,7 +62,9 @@ const Table = ({ columns, data, onRowClick, renderRowSubComponent }) => {
 
                   <th
                     {...column.getHeaderProps({
-                      style: { minWidth: column.minWidth, width: column.width },
+                      style: {
+                        width: column.width ? column.width : "auto",
+                      },
                     })}
                   >
                     {
@@ -84,7 +107,10 @@ const Table = ({ columns, data, onRowClick, renderRowSubComponent }) => {
                 </tr>
                 {row.isExpanded ? (
                   <tr>
-                    <td colSpan={visibleColumns.length}>
+                    <td
+                      className={"open-subrow"}
+                      colSpan={visibleColumns.length}
+                    >
                       {/*
                           Inside it, call our renderRowSubComponent function. In reality,
                           you could pass whatever you want as props to

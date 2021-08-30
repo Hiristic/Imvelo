@@ -44,7 +44,6 @@ const LoginForm = ({ onSubmit, serverError, loading }) => {
       <ErrorLabel>{serverError}</ErrorLabel>
       <ButtonWrapper>
         <Checkbox
-          type={"checkbox"}
           placeholder={"Kom ihåg"}
           name={"remember"}
           // value={true}
