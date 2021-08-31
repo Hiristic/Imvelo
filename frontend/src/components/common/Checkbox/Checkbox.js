@@ -3,18 +3,14 @@ import { Container, Checkmark, Input } from "./checkbox.styled";
 import { ErrorLabel } from "../ErrorLabel/ErrorLabel";
 
 const Checkbox = React.forwardRef((props, ref) => {
-  const { placeholder, error } = props;
+  const { placeholder, error, size } = props;
 
   return (
-    <div
-      style={{
-        textAlign: "left",
-      }}
-    >
-      <Container>
+    <div>
+      <Container size={size} placeholder={placeholder}>
         {placeholder}
-        <Input {...props} ref={ref} />
-        <Checkmark />
+        <Input type={"checkbox"} {...props} ref={ref} />
+        <Checkmark size={size} />
       </Container>
       {error ? <ErrorLabel>{error}</ErrorLabel> : null}
     </div>
