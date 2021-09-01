@@ -1,11 +1,7 @@
-import { DisplayList } from "./searchbar.styled";
+import { DisplayList, Text, ListItem, SearchMoreButton } from "./searchbar.styled";
 import React from "react";
 import styled from "styled-components";
 
-const ListItem = styled.li`
-  cursor: pointer;
-  padding-bottom: 16px;
-`;
 
 const ProductList = (props) => {
   const { productList, inputValue, onSelectProduct, displayProductList } =
@@ -14,6 +10,7 @@ const ProductList = (props) => {
   if (inputValue && displayProductList && productList.length > 0) {
     return (
       <DisplayList>
+        <Text> BÄSTA MATCHNINGEN </Text>
         <ul>
           {productList.map((product, index) => {
             return (
@@ -22,6 +19,7 @@ const ProductList = (props) => {
               </ListItem>
             );
           })}
+          <SearchMoreButton> Avancerad sökning </SearchMoreButton>
         </ul>
       </DisplayList>
     );
