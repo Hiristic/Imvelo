@@ -33,46 +33,48 @@ const SearchBar = () => {
   );
 };
 
-
-const ProductList = props => {
+const ProductList = (props) => {
   const {
     productList,
     inputValue,
     onSelectProduct,
     displayProductList,
-    selectedProduct
+    selectedProduct,
   } = props;
 
   if (inputValue && displayProductList && inputValue.length > 2) {
     if (productList.length > 0) {
       return (
         <DisplayList>
-          {productList.map((product, index) => {
-            return (
-              <li
-                style={{
-                  cursor: "pointer",
-                }}
-                key={index}
-                className="suggestion"
-                onClick={() => onSelectProduct(index)}
-              >
-                {product}
-              </li>
-            );
-          })}
+          <ul>
+            {productList.map((product, index) => {
+              return (
+                <li
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  key={index}
+                  className="suggestion"
+                  onClick={() => onSelectProduct(index)}
+                >
+                  {product}
+                </li>
+              );
+            })}
+          </ul>
         </DisplayList>
       );
     }
   }
   return <></>;
 };
+
 const Autocomplete = () => {
   const [inputValue, setInputValue] = React.useState("");
+  const debouncedValue = useDebounce(inputValue, 500);
   const [filteredProductList, setFilteredProductList] = React.useState([]);
   const [selectedProduct, setSelectedProduct] = React.useState(0);
   const [displayProductList, setDisplayProductList] = React.useState(false);
-
 
   const productList = [
     "Chemical 1",
@@ -87,11 +89,11 @@ const Autocomplete = () => {
     "Something 10",
   ];
 
-  const getResult = event => {
+  const getResult = (event) => {
     const value = event.target.value;
     setInputValue(value);
 
-    const filteredProductList = productList.filter(product =>
+    const filteredProductList = productList.filter((product) =>
       product.toLowerCase().includes(value.toLowerCase())
     );
 
@@ -99,7 +101,7 @@ const Autocomplete = () => {
     setDisplayProductList(true);
   };
 
-  const onSelectProduct = index => {
+  const onSelectProduct = (index) => {
     setSelectedProduct(index);
     setInputValue(filteredProductList[index]);
     setFilteredProductList([]);
@@ -116,7 +118,7 @@ const Autocomplete = () => {
         value={inputValue}
       />
       <ProductList
-        inputValue={inputValue}
+        inputValue={debouncedValue}
         selectedProduct={selectedProduct}
         onSelectProduct={onSelectProduct}
         displayProductList={displayProductList}

@@ -6,7 +6,7 @@ import { ReportsColumns } from "../../components/CustomTable/columnsConstants";
 import Pic1 from "../../assets/images/pictogram1.svg";
 import Pic2 from "../../assets/images/pictogram2.svg";
 import Pic3 from "../../assets/images/pictogram3.svg";
-import TreeMenu from "react-simple-tree-menu";
+import FileExplorer from "../../components/TreeMenu/FileExplorer";
 
 const Container = styled.div`
   width: 100%;
@@ -61,47 +61,6 @@ const treeData = [
   },
 ];
 
-const DEFAULT_PADDING = 16;
-const ICON_SIZE = 8;
-const LEVEL_SPACE = 16;
-
-const ItemComponent = ({
-  level = 0,
-  hasNodes,
-  isOpen,
-  label,
-  searchTerm,
-  openNodes,
-  toggleNode,
-  matchSearch,
-  focused,
-  ...props
-}) => (
-  <div
-    {...props}
-    style={{
-      paddingLeft: DEFAULT_PADDING + ICON_SIZE + level * LEVEL_SPACE,
-      cursor: "pointer",
-      boxShadow: focused ? "0px 0px 5px 0px #222" : "none",
-      zIndex: focused ? 999 : "unset",
-      position: "relative",
-    }}
-  >
-    {hasNodes && (
-      <div
-        style={{ display: "inline-block" }}
-        onClick={(e) => {
-          hasNodes && toggleNode && toggleNode();
-          e.stopPropagation();
-        }}
-      >
-        {/*<ToggleIcon on={isOpen} />*/}
-      </div>
-    )}
-    {label}
-  </div>
-);
-
 const Products = () => {
   const handleChangeSelection = useCallback((count) => {
     console.log(count);
@@ -109,13 +68,7 @@ const Products = () => {
 
   return (
     <Container>
-      <TreeMenu data={treeData} hasSearch={false}>
-        {({ items }) => {
-          items.map(({ key, ...props }) => (
-            <ItemComponent key={key} {...props} />
-          ));
-        }}
-      </TreeMenu>
+      <FileExplorer />
       <div>
         <DarkTableStyle>
           <Table

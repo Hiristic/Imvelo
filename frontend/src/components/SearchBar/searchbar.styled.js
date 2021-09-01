@@ -9,17 +9,20 @@ export const Search = styled.div`
   border-radius: 4px;
   align-items: center;
   padding: 10px;
+  position: relative;
 `;
-export const DisplayList = styled.ul`
- 
-    position: absolute;
-    top: 65px;
-    border-radius: 4px;
-    padding: 10px;
-    background-color: white;
-    width: 19.2%;
-    margin-left: -10px;   
+
+export const DisplayList = styled.div`
+  position: absolute;
+  top: 55px;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+  margin-left: -10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05), 0px 25px 35px rgba(0, 0, 0, 0.03);
 `;
+
 export const MyInput = styled.input`
   height: 100%;
   width: 100%;
