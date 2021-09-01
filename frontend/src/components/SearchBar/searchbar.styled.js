@@ -13,11 +13,11 @@ export const Search = styled.div`
 export const DisplayList = styled.ul`
  
     position: absolute;
-    top: 65px;
+    top: 40px;
     border-radius: 4px;
     padding: 10px;
     background-color: white;
-    width: 19.2%;
+    width: 100%;
     margin-left: -10px;   
 `;
 export const MyInput = styled.input`
