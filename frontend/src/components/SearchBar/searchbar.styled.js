@@ -15,11 +15,11 @@ export const Search = styled.div`
 export const DisplayList = styled.div`
   position: absolute;
   top: 55px;
+  left: 0;
   border-radius: 4px;
-  padding: 10px;
+  padding: 16px;
   background-color: white;
   width: 100%;
-  margin-left: -10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05), 0px 25px 35px rgba(0, 0, 0, 0.03);
 `;
 

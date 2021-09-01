@@ -7,6 +7,7 @@ const SearchBar = () => {
   return (
     <Search>
       <img
+        alt={"search"}
         src={SearchIcon}
         style={{
           width: "15px",
