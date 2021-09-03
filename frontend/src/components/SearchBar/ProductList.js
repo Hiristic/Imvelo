@@ -1,15 +1,18 @@
-import { DisplayList, Text, ListItem, SearchMoreButton } from "./searchbar.styled";
-import React from "react";
-import styled from "styled-components";
+import {
+  DisplayList,
+  Text,
+  ListItem,
+  SearchMoreButton,
+} from "./searchbar.styled";
+import React, { forwardRef } from "react";
 
-
-const ProductList = (props) => {
+const ProductList = forwardRef((props, ref) => {
   const { productList, inputValue, onSelectProduct, displayProductList } =
     props;
 
   if (inputValue && displayProductList && productList.length > 0) {
     return (
-      <DisplayList>
+      <DisplayList ref={ref}>
         <Text> BÄSTA MATCHNINGEN </Text>
         <ul>
           {productList.map((product, index) => {
@@ -25,6 +28,6 @@ const ProductList = (props) => {
     );
   }
   return <></>;
-};
+});
 
 export default ProductList;

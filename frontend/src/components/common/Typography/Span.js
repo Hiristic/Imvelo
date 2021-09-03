@@ -11,4 +11,9 @@ export const Span = styled.span`
   margin-bottom: ${(props) => props.marginBottom || "0px"};
   margin-left: ${(props) => props.marginLeft || "0px"};
   margin-right: ${(props) => props.marginRight || "0px"};
+  ${({ pointer }) =>
+    pointer &&
+    `
+  cursor:pointer;
+  `}
 `;

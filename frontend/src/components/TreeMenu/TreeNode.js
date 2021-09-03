@@ -4,6 +4,7 @@ import Sub from "../../assets/images/sub-non.svg";
 import { Span } from "../common/Typography";
 import PlusIcon from "../../assets/images/plusIcon.svg";
 import MinusIcon from "../../assets/images/minusIcon.svg";
+import OptionsIcon from "../../assets/images/options.svg";
 
 const StyledTreeNode = styled.div`
   font-size: 0.9em;
@@ -13,8 +14,8 @@ const StyledTreeNode = styled.div`
   align-items: center;
   padding: 5px 10px;
   margin-left: ${({ level }) => (level === 0 ? 10 : level * 40)}px;
-
   border-radius: 6px;
+  cursor: pointer;
 
   ${({ level }) =>
     level === 0 &&
@@ -46,9 +47,11 @@ const TreeNode = (props) => {
     activeNode,
   } = props;
 
+  const isActive = activeNode === node?.id;
+
   return (
     <>
-      <StyledTreeNode level={level} isActive={activeNode === node?.id}>
+      <StyledTreeNode level={level} isActive={isActive}>
         {node?.children?.length > 0 ? (
           <NodeIcon onClick={() => onToggle(node)}>
             {node?.isOpen ? (
@@ -80,6 +83,7 @@ const TreeNode = (props) => {
             ({node?.productCount})
           </Span>
         )}
+        {isActive && <img style={{ marginLeft: "auto" }} src={OptionsIcon} />}
       </StyledTreeNode>
 
       {node?.isOpen &&
@@ -88,7 +92,7 @@ const TreeNode = (props) => {
             key={index}
             {...props}
             node={childNode}
-            isActive={activeNode === node?.id}
+            isActive={isActive}
             level={level + 1}
           />
         ))}

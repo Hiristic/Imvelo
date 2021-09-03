@@ -6,6 +6,7 @@ const data = [
     id: 0,
     path: "Imvelo",
     isRoot: true,
+    isOpen: true,
     productCount: 100,
     children: ["David", "Slancer"],
   },
