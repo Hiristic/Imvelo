@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { MyInput } from "./searchbar.styled";
 import useDebounce from "../../hooks/useDebounce";
 import ProductList from "./ProductList";
+
 
 const Autocomplete = () => {
     const [inputValue, setInputValue] = React.useState("");
@@ -9,6 +10,21 @@ const Autocomplete = () => {
     const [filteredProductList, setFilteredProductList] = React.useState([]);
     const [selectedProduct, setSelectedProduct] = React.useState(0);
     const [displayProductList, setDisplayProductList] = React.useState(false);
+
+    const ref = useRef < HTMLDivElement > (null);
+
+    const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+            console.log("izvan");
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
 
     const productList = [
         "Chemical 1",
