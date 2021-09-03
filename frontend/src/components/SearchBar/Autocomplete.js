@@ -1,27 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MyInput } from "./searchbar.styled";
 import useDebounce from "../../hooks/useDebounce";
 import ProductList from "./ProductList";
 
 const Autocomplete = () => {
-  const [inputValue, setInputValue] = React.useState("");
+  const [inputValue, setInputValue] = useState("");
   const debouncedValue = useDebounce(inputValue, 500);
-  const [filteredProductList, setFilteredProductList] = React.useState([]);
-  const [selectedProduct, setSelectedProduct] = React.useState(0);
-  const [displayProductList, setDisplayProductList] = React.useState(false);
+  const [filteredProductList, setFilteredProductList] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [displayProductList, setDisplayProductList] = useState(false);
 
   const ref = useRef();
 
   const handleClickOutside = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
-      console.log("izvan");
+      setDisplayProductList(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
