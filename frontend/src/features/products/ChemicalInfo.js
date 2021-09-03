@@ -1,6 +1,5 @@
 import React from 'react';
 import { GoBackButton, ContentWrapper } from "./product.styled";
-import Products from "./Products";
 import { useHistory } from 'react-router-dom';
 
 const ChemicalInfo = () => {
