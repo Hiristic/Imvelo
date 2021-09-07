@@ -1,0 +1,1 @@
+export { default as ChemicalInfo } from "./ChemicalInfo.js";
