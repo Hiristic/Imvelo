@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Sub from "../../assets/images/sub-non.svg";
 import { Span } from "../common/Typography";
 import PlusIcon from "../../assets/images/plusIcon.svg";
 import MinusIcon from "../../assets/images/minusIcon.svg";
-import OptionsIcon from "../../assets/images/options.svg";
+import OptionMenu from "./OptionMenu";
+import useEventListener from "../../hooks/useEventListener";
 
 const StyledTreeNode = styled.div`
   font-size: 0.9em;
@@ -45,13 +46,41 @@ const TreeNode = (props) => {
     onToggle,
     onNodeSelect,
     activeNode,
+    onOptionPress,
   } = props;
 
   const isActive = activeNode === node?.id;
+  const [isOpened, setIsOpened] = useState(false);
+  const ref = useRef();
+
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpened(false);
+      }
+    },
+    [setIsOpened, ref]
+  );
+  useEventListener("contextmenu", handleClickOutside);
+
+  const onNodeClick = (e) => {
+    if (e.type === "contextmenu") {
+      e.preventDefault();
+      onNodeSelect(node);
+      setIsOpened(true);
+      console.log("Right click");
+    }
+  };
 
   return (
     <>
-      <StyledTreeNode level={level} isActive={isActive}>
+      <StyledTreeNode
+        ref={ref}
+        onClick={onNodeClick}
+        onContextMenu={onNodeClick}
+        level={level}
+        isActive={isActive}
+      >
         {node?.children?.length > 0 ? (
           <NodeIcon onClick={() => onToggle(node)}>
             {node?.isOpen ? (
@@ -70,7 +99,7 @@ const TreeNode = (props) => {
           role="button"
           onClick={() => onNodeSelect(node)}
         >
-          {node?.path}
+          {node?.name}
         </Span>
 
         {node?.productCount && (
@@ -83,18 +112,17 @@ const TreeNode = (props) => {
             ({node?.productCount})
           </Span>
         )}
-        {isActive && <img style={{ marginLeft: "auto" }} src={OptionsIcon} />}
+        <OptionMenu
+          setOpen={setIsOpened}
+          isOpen={isOpened}
+          isActive={isActive}
+          onOptionPress={onOptionPress}
+        />
       </StyledTreeNode>
 
       {node?.isOpen &&
         getChildNodes(node).map((childNode, index) => (
-          <TreeNode
-            key={index}
-            {...props}
-            node={childNode}
-            isActive={isActive}
-            level={level + 1}
-          />
+          <TreeNode {...props} key={index} node={childNode} level={level + 1} />
         ))}
     </>
   );

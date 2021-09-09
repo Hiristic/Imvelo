@@ -5,6 +5,7 @@ import CenterSpinner from "../components/common/Spinner/CenterSpinner";
 import { NavBar } from "../components/NavBar";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../features/dashboard/Dashboard";
+import Modal from "../components/Modal/Modal";
 
 const Products = lazy(() => import("../features/products/Products"));
 const Login = lazy(() => import("../features/authentication/Login"));
@@ -14,6 +15,7 @@ const Navigation = () => {
     <Router>
       <CustomThemeProvider>
         <NavBar />
+
         <Suspense fallback={<CenterSpinner />}>
           <Switch>
             <Route path="/login" exact component={Login} />
