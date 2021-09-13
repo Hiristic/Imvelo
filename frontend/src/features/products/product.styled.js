@@ -49,9 +49,9 @@ margin: 3px 0px 0px 66px;
 
 export const InfoContainer = styled.div`
 position: absolute;
-width: 100%;
-height: 100%;
-margin: 65px 0px 0px 0px;
+width: 100%; 
+height: 100%; 
+margin-top: -1px;
 background-color:white;
 `;
 export const Information = styled.div`
@@ -83,5 +83,4 @@ color: #878790;
 export const ProtectiveEquipment = styled.div`
 margin: 18px 0px 0px 705px;
 position: absolute;
-
 `;
