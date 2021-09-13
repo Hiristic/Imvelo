@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { DarkTableStyle } from "../../components/CustomTable/styledTable";
 import Table from "../../components/CustomTable/Table";
@@ -7,6 +7,7 @@ import Pic1 from "../../assets/images/pictogram1.svg";
 import Pic2 from "../../assets/images/pictogram2.svg";
 import Pic3 from "../../assets/images/pictogram3.svg";
 import FileExplorer from "../../components/TreeMenu/FileExplorer";
+import Tree from "../../components/TreeMenu/Tree";
 
 const Container = styled.div`
   width: 100%;
@@ -39,36 +40,54 @@ const SubRow = () => <div>opened</div>;
 
 const treeData = [
   {
-    key: "first-level-node-1",
-    label: "Node 1 at the first level",
-    nodes: [
-      {
-        key: "second-level-node-1",
-        label: "Node 1 at the second level",
-        nodes: [
-          {
-            key: "third-level-node-1",
-            label: "Last node of the branch",
-            nodes: [], // you can remove the nodes property or leave it as an empty array
-          },
-        ],
-      },
-    ],
+    id: 0,
+    name: "Imvelo",
+    isRoot: true,
+    isOpen: true,
+    productCount: 100,
+    children: [1, 3],
   },
   {
-    key: "first-level-node-2",
-    label: "Node 2 at the first level",
+    id: 1,
+    name: "David",
+    productCount: 200,
+    children: [2],
+  },
+  {
+    id: 2,
+    name: "readme.md",
+    productCount: 50,
+    children: [],
+  },
+  {
+    id: 3,
+    name: "Slancer",
+    children: [6, 4],
+  },
+  {
+    id: 4,
+    name: "Projects",
+    productCount: 150,
+    children: [5],
+  },
+  {
+    id: 5,
+    name: "Treeview",
+    children: [],
+  },
+  {
+    id: 6,
+    name: "Vblogs",
+    children: [],
   },
 ];
 
 const Products = () => {
-  const handleChangeSelection = useCallback((count) => {
-    console.log(count);
-  }, []);
+  const handleChangeSelection = useCallback((count) => {}, []);
 
   return (
     <Container>
-      <FileExplorer />
+      <Tree data={treeData} />
       <div>
         <DarkTableStyle>
           <Table

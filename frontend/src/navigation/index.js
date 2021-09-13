@@ -15,6 +15,7 @@ const Navigation = () => {
     <Router>
       <CustomThemeProvider>
         <NavBar />
+
         <Suspense fallback={<CenterSpinner />}>
           <Switch>
             <Route path="/login" exact component={Login} />
