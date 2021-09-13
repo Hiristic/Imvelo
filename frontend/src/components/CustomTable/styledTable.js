@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const DarkTableStyle = styled.div`
   width: 100%;
+
   table {
+    table-layout: fixed;
     border-collapse: separate;
     font-size: 1em;
     width: 100%;
@@ -42,12 +44,15 @@ export const DarkTableStyle = styled.div`
 
     tbody tr td {
       color: #272727;
-      word-break: break-word;
+      //word-break: break-word;
       font-size: 0.8em;
       text-align: left;
       border-collapse: collapse;
       font-weight: 500;
       padding-right: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .open-subrow {
       min-height: 340px;

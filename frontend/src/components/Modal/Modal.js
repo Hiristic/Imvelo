@@ -19,8 +19,8 @@ const InnerModal = styled.section`
   width: ${(props) => props.width || "auto"};
   height: auto;
   min-width: 30%;
-  max-height: 600px;
-  top: 30%;
+  //max-height: 600px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #ffffff;
@@ -33,7 +33,7 @@ const InnerModal = styled.section`
 const ButtonWrapper = styled.div`
   width: 100%;
   text-align: right;
-  margin-bottom: 26px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;

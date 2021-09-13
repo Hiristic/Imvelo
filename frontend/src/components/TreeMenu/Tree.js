@@ -4,7 +4,7 @@ import Modal from "../Modal/Modal";
 import { find, findIndex } from "lodash";
 import { optionsItems } from "../../config/optionsItems";
 
-const Tree = ({ onSelect, data }) => {
+const Tree = ({ onSelect, data, chosenId, isMoving }) => {
   const [nodes, setNodes] = useState(data);
   const [activeNode, setActiveNode] = useState(0);
   const [modalState, setModalState] = useState({ state: false, title: null });
@@ -35,7 +35,11 @@ const Tree = ({ onSelect, data }) => {
   const onOptions = (option) => {
     optionsItems.forEach((item) => {
       if (option?.id === item.id) {
-        setModalState({ state: true, title: item?.modalTitle });
+        setModalState({
+          state: true,
+          title: item?.modalTitle,
+          content: item?.modalComponent,
+        });
       }
     });
 
@@ -53,6 +57,8 @@ const Tree = ({ onSelect, data }) => {
     //     });
   };
 
+  const onModalSubmit = () => {};
+
   const rootNodes = getRootNodes();
 
   return (
@@ -67,8 +73,12 @@ const Tree = ({ onSelect, data }) => {
           })
         }
       >
-        <h1>test</h1>
+        {React.createElement(modalState?.content, {
+          id: activeNode,
+          onSubmit: (key) => console.log(key),
+        })}
       </Modal>
+
       {rootNodes.map((node) => (
         <TreeNode
           key={node.id}
@@ -78,6 +88,8 @@ const Tree = ({ onSelect, data }) => {
           onNodeSelect={onNodeSelect}
           activeNode={activeNode}
           onOptionPress={onOptions}
+          chosenId={chosenId}
+          isMoving={isMoving}
         />
       ))}
     </div>

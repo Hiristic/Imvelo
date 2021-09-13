@@ -21,14 +21,14 @@ export const ReportsColumns = [
       <Checkbox size={16} {...row.getToggleRowSelectedProps()} />
     ),
     disableFilters: true,
-    width: "5%",
+    width: "10%",
   },
   {
     Header: "Dokument",
     accessor: "country", // accessor is the "key" in the data
     disableFilters: true,
     Cell: ({ value }) => <FilesCell />,
-    width: "10%",
+    width: "15%",
   },
   {
     Header: "Produktnamm",

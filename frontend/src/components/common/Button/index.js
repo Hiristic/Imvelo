@@ -6,6 +6,7 @@ const Button = styled.button.attrs((props) => ({
   position: relative;
   outline: none;
   display: flex;
+
   justify-content: ${({ jc }) => jc || "center"};
   align-items: center;
 
@@ -52,8 +53,10 @@ const Button = styled.button.attrs((props) => ({
   ${({ secondary, theme }) =>
     secondary &&
     `
-    border: 2px solid;
-    background-color: transparent;
+    border: 1px solid ;
+    background-color: #fff;
+    font-weight:500;
+    font-size:0.9em;
     border-color: ${theme.colors.secondary};
     color: ${theme.colors.secondary};
   `}

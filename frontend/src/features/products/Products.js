@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { DarkTableStyle } from "../../components/CustomTable/styledTable";
 import Table from "../../components/CustomTable/Table";
 import { ReportsColumns } from "../../components/CustomTable/columnsConstants";
-import Pic1 from "../../assets/images/pictogram1.svg";
-import Pic2 from "../../assets/images/pictogram2.svg";
-import Pic3 from "../../assets/images/pictogram3.svg";
-import FileExplorer from "../../components/TreeMenu/FileExplorer";
 import Tree from "../../components/TreeMenu/Tree";
+import ToggleSwitch from "../../components/common/ToggleSwitch/ToggleSwitch";
+import { Text } from "../../components/common/Typography";
+import { tableData, treeData } from "../../config/mockedData";
+import Button from "../../components/common/Button";
+import FilterIcon from "../../assets/images/filterIcon.svg";
 
 const Container = styled.div`
   width: 100%;
-  padding: 73px 60px;
+  padding: 60px 40px;
   background-color: ${({ theme }) => theme.colors.backgroundColor};
   display: grid;
   grid-template-columns: 25% 1fr;
@@ -19,80 +20,53 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const data = [
-  {
-    subRows: undefined,
-    productName: "Toluene TECHNICAL",
-    supplier: "VWR International",
-    date: "16-03-2020",
-    pictograms: [Pic1, Pic2, Pic3],
-  },
-  {
-    subRows: undefined,
-    productName: "Neodisher Z",
-    supplier: "Chemische Fabrik Dr. Weigert GmbH & Co. KG",
-    date: "16-03-2020",
-    pictograms: [Pic1],
-  },
-];
+const TopWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+  margin-top: ${({ mt }) => mt || 0};
+`;
 
 const SubRow = () => <div>opened</div>;
-
-const treeData = [
-  {
-    id: 0,
-    name: "Imvelo",
-    isRoot: true,
-    isOpen: true,
-    productCount: 100,
-    children: [1, 3],
-  },
-  {
-    id: 1,
-    name: "David",
-    productCount: 200,
-    children: [2],
-  },
-  {
-    id: 2,
-    name: "readme.md",
-    productCount: 50,
-    children: [],
-  },
-  {
-    id: 3,
-    name: "Slancer",
-    children: [6, 4],
-  },
-  {
-    id: 4,
-    name: "Projects",
-    productCount: 150,
-    children: [5],
-  },
-  {
-    id: 5,
-    name: "Treeview",
-    children: [],
-  },
-  {
-    id: 6,
-    name: "Vblogs",
-    children: [],
-  },
-];
 
 const Products = () => {
   const handleChangeSelection = useCallback((count) => {}, []);
 
   return (
     <Container>
-      <Tree data={treeData} />
+      <div>
+        {/*<TopWrapper mt={"10px"}>*/}
+        {/*  <Text width={"auto"} fontWeight={500}>*/}
+        {/*    Avdelningar*/}
+        {/*  </Text>*/}
+        {/*  <ToggleSwitch />*/}
+        {/*  <Text width={"auto"} fontWeight={500}>*/}
+        {/*    Inkludera underavdelningar*/}
+        {/*  </Text>*/}
+        {/*</TopWrapper>*/}
+        <Tree data={treeData} />
+      </div>
       <div>
         <DarkTableStyle>
+          {/*<TopWrapper>*/}
+          {/*  <Text width={"auto"} fontWeight={500}>*/}
+          {/*    Produktlista*/}
+          {/*  </Text>*/}
+          {/*  <Button*/}
+          {/*    jc={"space-between"}*/}
+          {/*    height={"40px"}*/}
+          {/*    padding={"12px"}*/}
+          {/*    width={"90px"}*/}
+          {/*    secondary*/}
+          {/*  >*/}
+          {/*    <img alt={"filter-icon"} src={FilterIcon} />*/}
+          {/*    Filter*/}
+          {/*  </Button>*/}
+          {/*</TopWrapper>*/}
           <Table
             columns={ReportsColumns}
-            data={data || []}
+            data={tableData || []}
             onChangeSelection={handleChangeSelection}
             onRowClick={console.log}
             renderRowSubComponent={SubRow}

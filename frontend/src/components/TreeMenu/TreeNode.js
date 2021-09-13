@@ -31,6 +31,13 @@ const StyledTreeNode = styled.div`
     background: #e2f3ea;
     color: #2AAC64;
   `}
+  ${({ isChosen }) =>
+    isChosen &&
+    `
+   color:#c1bfbf;
+   cursor: not-allowed;
+  
+  `}
 `;
 
 const NodeIcon = styled.div`
@@ -47,9 +54,12 @@ const TreeNode = (props) => {
     onNodeSelect,
     activeNode,
     onOptionPress,
+    chosenId,
+    isMoving,
   } = props;
 
   const isActive = activeNode === node?.id;
+  const isChoosen = chosenId === node?.id;
   const [isOpened, setIsOpened] = useState(false);
   const ref = useRef();
 
@@ -64,7 +74,7 @@ const TreeNode = (props) => {
   useEventListener("contextmenu", handleClickOutside);
 
   const onNodeClick = (e) => {
-    if (e.type === "contextmenu") {
+    if (e.type === "contextmenu" && !isMoving) {
       e.preventDefault();
       onNodeSelect(node);
       setIsOpened(true);
@@ -80,24 +90,27 @@ const TreeNode = (props) => {
         onContextMenu={onNodeClick}
         level={level}
         isActive={isActive}
+        isChosen={isChoosen}
       >
-        {node?.children?.length > 0 ? (
-          <NodeIcon onClick={() => onToggle(node)}>
-            {node?.isOpen ? (
-              <img alt={"minus"} src={MinusIcon} />
-            ) : (
-              <img alt={"plus"} src={PlusIcon} />
-            )}
-          </NodeIcon>
-        ) : (
-          <img style={{ marginRight: 10 }} src={Sub} />
-        )}
+        {!isChoosen ? (
+          node?.children?.length > 0 ? (
+            <NodeIcon onClick={() => onToggle(node)}>
+              {node?.isOpen ? (
+                <img alt={"minus"} src={MinusIcon} />
+              ) : (
+                <img alt={"plus"} src={PlusIcon} />
+              )}
+            </NodeIcon>
+          ) : (
+            <img style={{ marginRight: 10 }} src={Sub} />
+          )
+        ) : null}
 
         <Span
           color={"inherit"}
           fontSize={"inherit"}
           role="button"
-          onClick={() => onNodeSelect(node)}
+          onClick={() => !isChoosen && onNodeSelect(node)}
         >
           {node?.name}
         </Span>
@@ -112,12 +125,13 @@ const TreeNode = (props) => {
             ({node?.productCount})
           </Span>
         )}
-        <OptionMenu
-          setOpen={setIsOpened}
-          isOpen={isOpened}
-          isActive={isActive}
-          onOptionPress={onOptionPress}
-        />
+        {isActive && !isMoving && (
+          <OptionMenu
+            setOpen={setIsOpened}
+            isOpen={isOpened}
+            onOptionPress={onOptionPress}
+          />
+        )}
       </StyledTreeNode>
 
       {node?.isOpen &&

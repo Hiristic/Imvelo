@@ -32,7 +32,7 @@ const TextItem = styled(Text)`
   }
 `;
 
-const OptionMenu = ({ isActive, onOptionPress, isOpen, setOpen }) => {
+const OptionMenu = ({ onOptionPress, isOpen, setOpen }) => {
   const ref = useRef();
 
   const handleClickOutside = useCallback(
@@ -48,7 +48,7 @@ const OptionMenu = ({ isActive, onOptionPress, isOpen, setOpen }) => {
   return (
     <Wrapper>
       <div onClick={() => setOpen((lastState) => !lastState)}>
-        {isActive && <img ref={ref} alt={"options icon"} src={OptionsIcon} />}
+        <img ref={ref} alt={"options icon"} src={OptionsIcon} />
       </div>
 
       {isOpen && (
