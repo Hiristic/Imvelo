@@ -36,15 +36,15 @@ const Products = () => {
   return (
     <Container>
       <div>
-        {/*<TopWrapper mt={"10px"}>*/}
-        {/*  <Text width={"auto"} fontWeight={500}>*/}
-        {/*    Avdelningar*/}
-        {/*  </Text>*/}
-        {/*  <ToggleSwitch />*/}
-        {/*  <Text width={"auto"} fontWeight={500}>*/}
-        {/*    Inkludera underavdelningar*/}
-        {/*  </Text>*/}
-        {/*</TopWrapper>*/}
+        <TopWrapper mt={"10px"}>
+          <Text width={"auto"} fontWeight={500}>
+            Avdelningar
+          </Text>
+          <ToggleSwitch />
+          <Text width={"auto"} fontWeight={500}>
+            Inkludera underavdelningar
+          </Text>
+        </TopWrapper>
         <Tree data={treeData} />
       </div>
       <div>

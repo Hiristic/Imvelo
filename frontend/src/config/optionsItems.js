@@ -1,6 +1,7 @@
 import AddNewDepartment from "../components/OptionsComponents/AddNewDepartment";
 import RenameComponent from "../components/OptionsComponents/RenameComponent";
 import MoveDepartment from "../components/OptionsComponents/MoveDepartment";
+import DeleteComponent from "../components/OptionsComponents/DeleteComponent";
 
 export const optionsItems = [
   {
@@ -26,6 +27,7 @@ export const optionsItems = [
   },
   {
     modalTitle: "Radera avdelning",
+    modalComponent: DeleteComponent,
     name: "Radera",
     color: "#F05453",
     id: 3,

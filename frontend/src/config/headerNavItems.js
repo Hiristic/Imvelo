@@ -2,7 +2,7 @@ export const NavItems = [
   {
     label: "Produkter",
     pathLocation: "/products",
-    isExact: true,
+    isExact: false,
   },
   {
     label: "Aktivitet",
