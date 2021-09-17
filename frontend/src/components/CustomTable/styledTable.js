@@ -61,6 +61,8 @@ export const DarkTableStyle = styled.div`
       border-top-right-radius: 0 !important;
       box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.02),
         0px 12.5216px 10.0172px rgba(0, 0, 0, 0.01);
+      white-space: normal;
+      overflow: auto;
     }
   }
 `;

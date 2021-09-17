@@ -7,9 +7,9 @@ export const LogedContainer = styled.div`
   width: 100%;
   padding: 12px 25px;
   display: grid;
-  grid-template-columns: auto 1fr 1fr 9%;
+  grid-template-columns: auto 1fr 1fr 10%;
   align-items: center;
-  grid-gap: 34px;
+  grid-gap: 25px;
 `;
 
 export const GuestContainer = styled.div`

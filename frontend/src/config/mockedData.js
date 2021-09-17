@@ -48,6 +48,7 @@ export const treeData = [
 
 export const tableData = [
   {
+    id: 1,
     subRows: undefined,
     productName: "Toluene TECHNICAL",
     supplier: "VWR International",
@@ -55,6 +56,7 @@ export const tableData = [
     pictograms: [Pic1, Pic2, Pic3],
   },
   {
+    id: 2,
     subRows: undefined,
     productName: "Neodisher Z",
     supplier: "Chemische Fabrik Dr. Weigert GmbH & Co. KG",

@@ -4,8 +4,8 @@ import {
   ContentWrapper,
   Leverantor,
   ProductName,
-} from "./product.styled";
-import Products from "./Products";
+} from "./components/product.styled";
+import Products from "../products/Products";
 import { useHistory } from "react-router-dom";
 //import CustomTabs from "./CustomTabs";
 

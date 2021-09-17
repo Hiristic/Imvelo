@@ -5,7 +5,7 @@ import CenterSpinner from "../components/common/Spinner/CenterSpinner";
 import { NavBar } from "../components/NavBar";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../features/dashboard/Dashboard";
-import ChemicalInfo from "../features/products/ChemicalInfo";
+import ChemicalInfo from "../features/product/ChemicalInfo";
 
 const Products = lazy(() => import("../features/products/Products"));
 const Login = lazy(() => import("../features/authentication/Login"));

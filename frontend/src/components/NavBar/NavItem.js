@@ -12,7 +12,7 @@ const MenuText = styled(Text)`
 
 const StyledLink = styled(NavLink)`
   color: #fff;
-  margin-right: 20px;
+  margin-right: 10px;
   height: 100%;
   padding-right: 12px;
   padding-left: 12px;

@@ -95,7 +95,11 @@ const Table = ({
                     row.cells.map((cell) => {
                       // Apply the cell props
                       return (
-                        <td {...cell.getCellProps()} title={cell?.value}>
+                        <td
+                          className={"table-data"}
+                          {...cell.getCellProps()}
+                          title={cell?.value}
+                        >
                           {
                             // Render the cell contents
                             cell.render("Cell")

@@ -137,4 +137,5 @@ const TabsWrapper = styled.div`
   display: ${({ show }) => (show ? "block" : "none")};
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05), 0px 25px 35px rgba(0, 0, 0, 0.03);
   border-radius: 4px;
+  z-index: 200;
 `;

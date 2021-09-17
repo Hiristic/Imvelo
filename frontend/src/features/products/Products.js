@@ -9,6 +9,7 @@ import { Text } from "../../components/common/Typography";
 import { tableData, treeData } from "../../config/mockedData";
 import Button from "../../components/common/Button";
 import FilterIcon from "../../assets/images/filterIcon.svg";
+import SubRowComponent from "./components/SubRowComponent";
 
 const Container = styled.div`
   width: 100%;
@@ -24,11 +25,9 @@ const TopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 26px;
+  margin-bottom: ${({ mb }) => mb || "15px"};
   margin-top: ${({ mt }) => mt || 0};
 `;
-
-const SubRow = () => <div>opened</div>;
 
 const Products = () => {
   const handleChangeSelection = useCallback((count) => {}, []);
@@ -36,7 +35,7 @@ const Products = () => {
   return (
     <Container>
       <div>
-        <TopWrapper mt={"10px"}>
+        <TopWrapper mb={"40px"} mt={"10px"}>
           <Text width={"auto"} fontWeight={500}>
             Avdelningar
           </Text>
@@ -49,27 +48,29 @@ const Products = () => {
       </div>
       <div>
         <DarkTableStyle>
-          {/*<TopWrapper>*/}
-          {/*  <Text width={"auto"} fontWeight={500}>*/}
-          {/*    Produktlista*/}
-          {/*  </Text>*/}
-          {/*  <Button*/}
-          {/*    jc={"space-between"}*/}
-          {/*    height={"40px"}*/}
-          {/*    padding={"12px"}*/}
-          {/*    width={"90px"}*/}
-          {/*    secondary*/}
-          {/*  >*/}
-          {/*    <img alt={"filter-icon"} src={FilterIcon} />*/}
-          {/*    Filter*/}
-          {/*  </Button>*/}
-          {/*</TopWrapper>*/}
+          <TopWrapper>
+            <Text width={"auto"} fontWeight={500}>
+              Produktlista
+            </Text>
+            <Button
+              jc={"space-between"}
+              height={"40px"}
+              padding={"12px"}
+              width={"90px"}
+              secondary
+            >
+              <img alt={"filter-icon"} src={FilterIcon} />
+              Filter
+            </Button>
+          </TopWrapper>
           <Table
             columns={ReportsColumns}
             data={tableData || []}
             onChangeSelection={handleChangeSelection}
-            onRowClick={console.log}
-            renderRowSubComponent={SubRow}
+            onRowClick={(data) => {
+              console.log(data);
+            }}
+            renderRowSubComponent={SubRowComponent}
           />
         </DarkTableStyle>
       </div>
