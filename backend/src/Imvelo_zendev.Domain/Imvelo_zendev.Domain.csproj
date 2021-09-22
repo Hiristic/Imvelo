@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Imvelo_zendev.Domain.Core\Imvelo_zendev.Domain.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Enums\" />
+  </ItemGroup>
+
+</Project>
