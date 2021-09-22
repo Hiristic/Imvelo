@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Checkmark = styled.span`
   background-color: #fff;
   position: absolute;
-  top: 0;
   left: 0;
   height: ${({ size }) => size + "px" || "25px"};
   width: ${({ size }) => size + "px" || "25px"};
@@ -21,7 +20,8 @@ export const Checkmark = styled.span`
 
 export const Container = styled.label`
   position: relative;
-  padding-left: ${({ placeholder }) => placeholder && "35px"};
+  padding-left: ${({ placeholder, paddingLeft }) =>
+    placeholder && paddingLeft ? paddingLeft : "30px"};
   cursor: pointer;
   font-size: 0.9em;
   font-weight: 500;
@@ -29,6 +29,9 @@ export const Container = styled.label`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: flex;
+  align-items: center;
+  margin-right: ${({ marginRight }) => marginRight};
 
   ${Checkmark} {
     &:after {

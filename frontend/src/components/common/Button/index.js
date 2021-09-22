@@ -38,7 +38,7 @@ const Button = styled.button.attrs((props) => ({
   border-width: ${(props) => (props.borderWidth ? props.borderWidth : 0)};
   border-color: ${(props) =>
     props.borderColor ? props.borderColor : "transparent"};
-
+  z-index: 200;
   transition: 0.3s;
   opacity: 1;
   ${({ disabled }) =>

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import { DarkTableStyle } from "../../components/CustomTable/styledTable";
 import Table from "../../components/CustomTable/Table";
@@ -10,6 +10,8 @@ import { tableData, treeData } from "../../config/mockedData";
 import Button from "../../components/common/Button";
 import FilterIcon from "../../assets/images/filterIcon.svg";
 import SubRowComponent from "./components/SubRowComponent";
+import Checkbox from "../../components/common/Checkbox/Checkbox";
+import FilterModal from "./components/FilterModal";
 
 const Container = styled.div`
   width: 100%;
@@ -18,7 +20,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 25% 1fr;
   grid-gap: 0 30px;
-  height: 100%;
+  height: calc(100vh + 200px);
 `;
 
 const TopWrapper = styled.div`
@@ -29,8 +31,13 @@ const TopWrapper = styled.div`
   margin-top: ${({ mt }) => mt || 0};
 `;
 
+const FilterContainer = styled.div`
+  position: relative;
+`;
+
 const Products = () => {
   const handleChangeSelection = useCallback((count) => {}, []);
+  const [filter, setFilter] = useState(false);
 
   return (
     <Container>
@@ -47,22 +54,26 @@ const Products = () => {
         <Tree data={treeData} />
       </div>
       <div>
-        <DarkTableStyle>
-          <TopWrapper>
-            <Text width={"auto"} fontWeight={500}>
-              Produktlista
-            </Text>
+        <FilterModal show={filter} onHide={() => setFilter(false)} />
+        <TopWrapper>
+          <Text width={"auto"} fontWeight={500}>
+            Produktlista
+          </Text>
+          <FilterContainer>
             <Button
               jc={"space-between"}
               height={"40px"}
               padding={"12px"}
               width={"90px"}
               secondary
+              onClick={() => setFilter(!filter)}
             >
               <img alt={"filter-icon"} src={FilterIcon} />
               Filter
             </Button>
-          </TopWrapper>
+          </FilterContainer>
+        </TopWrapper>
+        <DarkTableStyle>
           <Table
             columns={ReportsColumns}
             data={tableData || []}

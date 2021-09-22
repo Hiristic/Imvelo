@@ -5,7 +5,7 @@ import IMG3 from "../../../assets/images/Skyddsklader_tcm3-13905.svg";
 import ProductClassification from "./ProductClassification";
 import { Text } from "../../../components/common/Typography";
 import Restrictions from "./Restrictions";
-import RiskMatrix from "./RiskMatrix";
+import RiskMatrix from "../../../components/RiskMatrix/RiskMatrix";
 
 const Container = styled.div`
   position: relative;
