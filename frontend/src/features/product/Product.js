@@ -4,12 +4,10 @@ import {
   ContentWrapper,
   Leverantor,
   ProductName,
-} from "./components/product.styled";
-import Products from "../products/Products";
+} from "./product.styled";
 import { useHistory } from "react-router-dom";
-//import CustomTabs from "./CustomTabs";
 
-const ChemicalInfo = () => {
+const Product = () => {
   const history = useHistory();
   const myProduct = {
     supplier: "Henkel Ltd",
@@ -30,4 +28,4 @@ const ChemicalInfo = () => {
   );
 };
 
-export default ChemicalInfo;
+export default Product;

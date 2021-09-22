@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InfoContainer } from "./product.styled";
+import { InfoContainer } from "../product.styled";
 
 const Document = () => {
   return (
